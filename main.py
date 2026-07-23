@@ -70,6 +70,6 @@ def get_eventos(bar_id: int):
 @app.post('/bares/{bar_id}/eventos')
 def post_evento(bar_id: int, datos: dict):
     datos['bar_id'] = bar_id
-    datos['fecha']  = datetime.now().isoformat()
+    datos['fecha_creacion']  = datetime.now().isoformat()
     db["eventos"].insert_one(datos)
     return {'mensaje': 'Comentario guardado'}
